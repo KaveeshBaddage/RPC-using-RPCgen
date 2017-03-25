@@ -5,8 +5,27 @@
  */
 
 #include "oddEven.h"
+#include <stdio.h>
 
+number  oddeven_1_arg;
+int x;
+void isoddeven_1(char *host);
 
+int
+main (int argc, char *argv[])
+{
+	char *host;
+	number  oddeven_1_arg;
+	if (argc < 2) {
+		printf ("usage: %s server_host\n", argv[0]);
+		exit (1);
+	}
+	host = argv[1];
+	x =atoi(argv[2]);
+	oddeven_1_arg.num1= x;
+	isoddeven_1 (host);
+exit (0);
+}
 void
 isoddeven_1(char *host)
 {
@@ -21,27 +40,21 @@ isoddeven_1(char *host)
 		exit (1);
 	}
 #endif	/* DEBUG */
-
+	oddeven_1_arg.num1 = x;
 	result_1 = oddeven_1(&oddeven_1_arg, clnt);
 	if (result_1 == (int *) NULL) {
 		clnt_perror (clnt, "call failed");
+	}else{
+		if(*result_1==0){
+			printf("The number %d is even \n",oddeven_1_arg.num1); /* Print the result given by server*/
+		}else{
+			printf("The number %d is odd \n",oddeven_1_arg.num1); 
+		}
 	}
+	
 #ifndef	DEBUG
 	clnt_destroy (clnt);
 #endif	 /* DEBUG */
 }
 
 
-int
-main (int argc, char *argv[])
-{
-	char *host;
-
-	if (argc < 2) {
-		printf ("usage: %s server_host\n", argv[0]);
-		exit (1);
-	}
-	host = argv[1];
-	isoddeven_1 (host);
-exit (0);
-}

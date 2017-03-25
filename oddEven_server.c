@@ -10,10 +10,21 @@ int *
 oddeven_1_svc(number *argp, struct svc_req *rqstp)
 {
 	static int  result;
+	printf("Received the client request\n");
+	printf("parameter:%d \n",argp->num1);
+	
+	//get the parameter passed from the client
+	int input = argp->num1;
 
-	/*
-	 * insert server code here
-	 */
+	//check whether the number is odd or even
+	if (input%2 == 0){
+      		result=0;
+	}
+  	 else{
+      		result=1;
+	}
+	
+	//return the result to the client
 
 	return &result;
 }
