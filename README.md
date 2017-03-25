@@ -2,7 +2,7 @@
 
 RPC program.
 
-This RPC program supports 1 remote procedure call that check given number is odd or even.
+This RPC program supports one remote procedure call that check given number is odd or even.
 
 
 
