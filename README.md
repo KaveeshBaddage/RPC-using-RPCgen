@@ -32,6 +32,7 @@ How to run :
 
 First go to the project root and run below three commands
 
+rpcinfo
 rpcgen -C oddEven.x
 make -f Makefile.oddEven
 ./oddEven_server
