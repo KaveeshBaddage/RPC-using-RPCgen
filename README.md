@@ -28,3 +28,15 @@ oddEven_clnt.c - The client stubs, this file was created by rpcgen.
 oddEven_xdr.c - the XDR filter(s) needed for this application, this file was created by rpcgen.
 
 
+How to run :
+
+First go to the project root and run below three commands
+
+rpcgen -C oddEven.x
+make -f Makefile.oddEven
+./oddEven_server
+
+Then open a new terminal and run the client using the following command. In the below command, after the localhost user should give any number as the parameter to check odd, even property.
+
+./oddEven_client localhost 7
+
